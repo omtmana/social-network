@@ -24,6 +24,7 @@ app.use(cors())
 app.use("/assets", express.static(path.join(__dirname, 'public/assets'))) //set dir where we keep our storage local
 
 // FILE STORAGE
+// this is how you can save a file. which 
 const storage = multer.diskStorage({
    destination: function(req, file, cb) {
       cb(null, "public/assets")
@@ -32,3 +33,5 @@ const storage = multer.diskStorage({
       cb(null, file.originalname)
    }
 })
+const upload = multer({storage}) 
+
